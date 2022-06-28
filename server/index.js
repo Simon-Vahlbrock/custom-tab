@@ -6,13 +6,13 @@ import cors from "cors";
 import cardsRouter from './routes/cards.js'
 
 const app = express();
-
-app.use("/cards", cardsRouter)
-
 app.use(bodyParser.json({ limit : "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit : "30mb", extended: true }));
-
 app.use(cors());
+
+app.use("/cards", cardsRouter);
+
+
 
 const CONNECTION_URL = 'mongodb+srv://Svahlbrock:Joj25(89)@cluster0.64ajnpm.mongodb.net/?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5001;
